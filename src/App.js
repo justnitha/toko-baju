@@ -1,6 +1,6 @@
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import './plugin/font-awesome/css/all.css';
 import WingTipSkull1 from './pages/SelectOption/Wingtip-Skull-Black1';
