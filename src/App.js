@@ -1,24 +1,33 @@
-import logo from './logo.svg';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+import './plugin/font-awesome/css/all.css';
+import WingTipSkull1 from './pages/SelectOption/Wingtip-Skull-Black1';
+import WingtipCluth1 from './pages/SelectOption/Wingtip-cluth2';
+import WingtipPinWhite from './pages/SelectOption/Wingtip-pinWhite';
+import WingtipPinBlack from './pages/SelectOption/Wingtif-pinBlack';
+import WingtipFontWhite from './pages/SelectOption/Wingtif-FontWhite';
+import WingtipFontBlack from './pages/SelectOption/Wingtif-FontBlack';
+import WingtipCrossWhite from './pages/SelectOption/Wingtif-CroosWhite';
+import WingtipCrossBlack from './pages/SelectOption/Wingtif-CrossBlack';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/' element={<><Navbar/> <Home/></>} />
+        <Route path='/product/t-shirt-kids-wingtip-skull-black' element={<WingTipSkull1/>} />
+        <Route path='/product/t-shirt-kids-suicide-clutch-black' element={<WingtipCluth1/>} />
+        <Route path='/product/t-shirt-kids-nk-logo-pin-white' element={<WingtipPinWhite/>} />
+        <Route path='/product/t-shirt-kids-nk-logo-pin-black' element={<WingtipPinBlack/>} />
+        <Route path='/product/t-shirt-kids-nk13-font-white' element={<WingtipFontWhite/>} />
+        <Route path='/product/t-shirt-kids-nk13-font-Black' element={<WingtipFontBlack/>} />
+        <Route path='/product/t-shirt-kids-cross-font-white' element={<WingtipCrossWhite/>} />
+        <Route path='/product/t-shirt-kids-cross-font-black' element={<WingtipCrossBlack/>} />
+      </Routes>
+    </Router>
   );
 }
 
