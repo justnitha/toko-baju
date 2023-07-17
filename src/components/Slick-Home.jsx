@@ -56,12 +56,12 @@ const AutoPlay = () => {
   };
 
   return (
-    <div className="">
+    <div className=" ">
       <Slider {...settings}>
-        <div className="bg-1 lg:h-screen sm:h-screen md:h-screen h-[80vh] bg-cover bg-center"></div>
-        <div className="bg-2 lg:h-screen sm:h-screen md:h-screen h-[80vh] bg-cover bg-center"></div>
-        <div className="bg-3 lg:h-screen sm:h-screen md:h-screen h-[80vh] bg-cover bg-center"></div>
-        <div className="bg-4 lg:h-screen sm:h-screen md:h-screen h-[80vh] bg-cover bg-center"></div>
+        <div className="bg-1 h-screen bg-cover bg-center"></div>
+        <div className="bg-2 h-screen bg-cover bg-center"></div>
+        <div className="bg-3 h-screen bg-cover bg-center"></div>
+        <div className="bg-4 h-screen bg-cover bg-center"></div>
       </Slider>
     </div>
   );

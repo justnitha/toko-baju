@@ -32,6 +32,7 @@ const Modal7 = ({ isOpen, onClose }) => {
   const CustomNextArrow = (props) => (
       <button className="absolute right-5 bottom-[25.5rem] text-white" onClick={props.onClick}>
       <i class="fa-solid fa-arrow-right fa-lg"></i>
+     
       </button>
     );
   const settings = {
@@ -43,9 +44,37 @@ const Modal7 = ({ isOpen, onClose }) => {
     slidesToScroll: 1,
     nextArrow: <CustomNextArrow />,
     prevArrow: <CustomPrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          speed: 500,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          speed: 500,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   return (
-    <div className='  '>
+    <div>
       {isOpen && (
         // untuk background
         <div className="absolute w-[100%] bg-black opacity-80 top-0 h-[267vh] z-30"> </div>
@@ -59,7 +88,7 @@ const Modal7 = ({ isOpen, onClose }) => {
               <p>{item.number}/3</p>
               <i class="fa-solid fa-xmark fa-2x cursor-pointer" onClick={handleClose}></i>
               </div>
-                <div className="h-[42.8rem]">
+                <div className="hidden lg:block h-[42.8rem]">
                   <img src={item.image} 
                        alt="image"  
                        onClick={handleZoomTogglee} 
@@ -75,12 +104,21 @@ const Modal7 = ({ isOpen, onClose }) => {
                       </button>
                     )}
                 </div>
+                {/* appppp */}
+                <div className="lg:hidden h-[42.8rem]">
+                  <img src={item.image} 
+                       alt="image"  
+                       onClick={handleZoomTogglee} 
+                       className="w-full mt-32 sm:mt-0 md:mt-0 sm:h-full  bg-white mx-auto cursor-pointer" />
+                </div>
               <div className="bg-black text-white text-center opacity-50  py-3">
                   <p className="  ">{item.name}</p>
+          
               </div>
             </div>
           ))}
         </Slider>
+        
       </div>
       )}
     </div>

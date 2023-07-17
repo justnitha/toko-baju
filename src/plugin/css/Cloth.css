@@ -1,5 +1,5 @@
 .custom-dotss li {
-  margin: 0 110px 0 0;
+  /* margin: 0 110px 0 0; */
 }
 .zoom-img {
   width: 100%;
@@ -14,7 +14,7 @@
 /* select option*/
 .custom-select {
   position: relative;
-  width: 300px;
+ 
 }
 
 .custom-select select {

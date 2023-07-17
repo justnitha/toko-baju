@@ -38,10 +38,10 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`flex items-center  mx-auto justify-between px-3 lg:px-0 lg:justify-center lg:gap-[18rem] py-1 text-white  top-0 right-0 left-0 z-50 fixed ${navbarScrolled ? 'bg-black flex opacity-90' :'' || isOpen ? ' top-0 left-0 bg-black opacity-80 fixed ' : 'flex'}`}>
+    <nav className={`flex items-center mx-auto justify-between px-3 lg:px-0 lg:justify-center lg:gap-[18rem] py-1 text-white  top-0 right-0 left-0 z-50 fixed ${navbarScrolled ? 'bg-black flex opacity-90' :'' || isOpen ? ' top-0 left-0 bg-black opacity-80 fixed ' : 'flex'}`}>
       <div className="navbar-toggle " onClick={toggleNavbar}>
         {isOpen ? (
-          <div className="p-2 absolute top-0 right-0" ><i class="fa-solid fa-xmark fa-2x"></i></div> // Icon untuk navbar terbuka
+          <div className="p-2 absolute top-0 lg:right-0" ><i class="fa-solid fa-xmark fa-2x"></i></div> // Icon untuk navbar terbuka
         ) : (
           <div className='flex items-center sm:text-base text-xl uppercase gap-1'>
             <i class="fa-solid fa-bars fa-lg "></i>
@@ -49,7 +49,7 @@ const Navbar = () => {
           </div> // Icon untuk navbar tertutup
         )}
       </div>
-      <div className={isOpen ? 'hidden':'text-center w-[20%] sm:w-[11%] lg:w-[5%] ms-[2rem] lg:ms-[7rem]'}>
+      <div className={isOpen ? 'hidden':'text-center w-[20%] sm:w-[11%] lg:w-[5%]  lg:ms-[7rem]'}>
         <img src={require ('../plugin/img/CROSSLOGO-BLK.png')} alt="logo" className='mx-auto w-full' />
       </div>
       <ul className="flex gap-5">

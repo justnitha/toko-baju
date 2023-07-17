@@ -9,8 +9,6 @@ export const Cloth=[
         name: "T-Shirt Kids Wingtip Skull Black",
         price:"150.000",
         link:"/product/t-shirt-kids-wingtip-skull-black",
-        modalContent:"omfssfssss"
-        
     },
     {
         id:2,

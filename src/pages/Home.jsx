@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import AutoPlay from "../components/Slick-Home";
 import { Cloth } from "../components/js/Cloth";
 import "../plugin/css/Slick.css";
@@ -8,52 +9,7 @@ import Scroll from "../components/ScroolWA";
 import LastestViews from "../components/LastesView";
 import { MyComponent } from "../components/LastesView";
 
-// const MyComponent = (props) => {
-//   const [isHovered, setIsHovered] = useState(false);
 
-//   const handleMouseEnter = () => {
-//     setIsHovered(true);
-//   };
-
-//   const handleMouseLeave = () => {
-//     setIsHovered(false);
-//   };
-
-//   return (
-//     <div
-//       className="hoverr cursor-pointer"
-//       onMouseEnter={handleMouseEnter}
-//       onMouseLeave={handleMouseLeave}
-//     >
-//       <div
-//         className={`absolute px-3 py-1 font-bold leading-none border-2 -ms-3 mt-6 border-black text-black bg-white z-10  txt ${
-//           isHovered ? "hovered" : ""
-//         }`}
-//       >
-//         <p className="">{props.tanggal}</p>
-//         <p className="capitalize text-xs ">{props.bulan}</p>
-//       </div>
-//       <div className="text-center absolute mt-48 z-10 w-[17.8%] px-7 italic mx-auto text-white font-bold text-sm">
-//         <p
-//           className={` not-italic text-xs opacity-70 ${props.width} mx-auto uppercase event ${
-//             isHovered ? "hovered" : ""
-//           }`}
-//         >
-//           {props.tajuk}
-//         </p>
-//         <p className="uppercase">
-//           {props.title}
-//         </p>
-//         <p className=" not-italic opacity-90 font-normal mt-3">[Read More]</p>
-//       </div>
-//       <img
-//         src={props.image}
-//         alt="image"
-//         className="h-full  object-cover  "
-//       />
-//     </div>
-//   );
-// };
 
 const Home = () => {
   const [hoveredItem, setHoveredItem] = useState(null);
@@ -95,9 +51,8 @@ const Home = () => {
 
   return (
     <div className={`${isModalOpen ? "" : ""}`}>
-      
-      <AutoPlay />
-      <div className="lg:w-[80%] w-[90%]  mx-auto sm:mt-5">
+      <AutoPlay />  
+      <div className="lg:w-[100%] w-[90%]  mx-auto sm:mt-5">
         <div className="text-center py-6">
           <h1 className="italic uppercase sm:text-4xl lg:text-3xl font-bold">
             Upcoming Events
@@ -106,6 +61,7 @@ const Home = () => {
             src={require("../plugin/img/FEED-POSTER-CW23.png")}
             alt="events"
             className="lg:h-[25rem] sm:h-[23rem] h-[30rem] py-6 mx-auto lg:w-[17.5rem] sm:w-[17.5rem] w-full lg:mt-0 mt-14 sm:mt-10"
+            loading="lazy"
           />
           <button className=" uppercase bg-black text-white lg:w-[17.5rem] sm:w-[17.5rem] w-full text-sm py-1">
             more info
@@ -124,7 +80,7 @@ const Home = () => {
             Denpasar, Bali.
           </p>
         </div>
-        <div className="flex items-center gap-2 py-6">
+        <div className="flex items-center gap-2 py-6 w-[80%] mx-auto">
           <div className="w-[40%] h-[0.1rem] bg-gray-200" />
           <div className="lg:text-lg sm:text-lg text-sm text-center uppercase font-bold italic lg:w-[20%] sm:w-[40%] w-[80%]">
             browser product
@@ -154,12 +110,17 @@ const Home = () => {
               Rp. {item.price}
             </p>
             <div className="text-center border-2 border-black lg:w-[54.3%] w-full mx-auto mt-2 hover:bg-black hover:text-white">
-              <a
+              {/* <a
                 href={item.link}
                 className=" uppercase px-4 py-1 text-xs font-semibold"
               >
                 select option
-              </a>
+              </a> */}
+              <Link 
+                to={item.link}
+                className=" uppercase px-4 py-1 text-xs font-semibold">
+              select option
+              </Link>
             </div>
             {hoveredItem === item.id && (
               <div>

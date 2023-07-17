@@ -22,14 +22,14 @@ const Scroll = () => {
   return (
     <div>
       {/* Content of your page */}
-      <div className="fixed bottom-3 text-white bg-[#65d072] rounded-full hover:bg-green-700 shadow-xl  lg:right-7 right-7 ">
+      <div className="fixed bottom-3 text-white bg-[#65d072] rounded-full hover:bg-green-700 shadow-xl  lg:right-3 right-3 ">
         {showButton && (
           <button
             className="z-1  px-4 py-2 text-lg  border-none flex items-center gap-5"
             onClick={scrollToTop}
           >
             <i class="fa-brands fa-whatsapp fa-xl"></i>
-            <p>Need help ?</p>
+            <p className="md:text-xl">Need help ?</p>
           </button>
         )}
       </div>
