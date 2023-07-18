@@ -19,8 +19,10 @@ export const SelectOption1 = (props) => {
   const [Tambah, SetTambah] = useState(1);
   const [Sisa, SetSisa] = useState("");
   const { cloth, modalComponent: ModalComponent } = props;
-  // const cloth=props.cloth;
 
+  useEffect(() => {
+    window.scrollTo(0, 0); // Memindahkan fokus ke bagian paling atas
+  }, []);
 
   useEffect(() => {
     document.title = `${props.title}`;
@@ -91,7 +93,7 @@ export const SelectOption1 = (props) => {
         <i class="fa-solid fa-chevron-left fa-xl"></i>
       </div>
       <div className="hidden md:block lg:hidden">
-      <i class="fa-solid fa-chevron-left fa-3x "></i>
+        <i class="fa-solid fa-chevron-left fa-3x "></i>
       </div>
     </button>
   );
@@ -106,8 +108,7 @@ export const SelectOption1 = (props) => {
         <i class="fa-solid fa-chevron-right fa-xl"></i>
       </div>
       <div className="hidden md:block lg:hidden">
-      <i class="fa-solid fa-chevron-right fa-3x "></i>
-
+        <i class="fa-solid fa-chevron-right fa-3x "></i>
       </div>
     </button>
   );
@@ -183,11 +184,16 @@ export const SelectOption1 = (props) => {
                 <img src={item.image} alt="img" className=" mx-auto" />
               </div>
               <button
-        onClick={handleOpenModal}
-        className=" lg:-mt-20 px-2 py-1 border-2 border-gray-200 rounded-[47%] text-gray-200"
-      >
-        <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
-      </button>
+                onClick={handleOpenModal}
+                className=" lg:-mt-20 px-2 md:px-5 md:py-5 lg:px-2 lg:py-1  py-1 border-2 border-gray-200 rounded-[47%] text-gray-200"
+              >
+                <div className="hidden md:block">
+                  <i class="fa-solid fa-up-right-and-down-left-from-center fa-2x"></i>
+                </div>
+                <div className="md:hidden">
+                  <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+                </div>
+              </button>
             </div>
           ))}
         </Slider>
@@ -206,7 +212,7 @@ export const SelectOption1 = (props) => {
               <h1 className="sm:text-2xl md:text-4xl lg:text-xl -tracking-wide italic uppercase font-bold mt-2">
                 {props.namaBaju1}
               </h1>
-              <div className="h-[10] border-2 border-gray-300 w-10 my-4"></div>
+              <div className="h-[10] border-2 border-gray-300 w-10 my-4 md:my-7 lg:my-4"></div>
             </div>
             <div className="flex gap-3 text-[#c0c0c0]">
               <i class="fa-solid fa-chevron-left px-3 py-4 fa-xs rounded-[5rem] border-2 border-[#c0c0c0] hover:bg-black hover:text-white hover:border-black"></i>
@@ -215,20 +221,20 @@ export const SelectOption1 = (props) => {
           </div>
           {/*  */}
           <div>
-            <h2 className="mt-3 lg:mt-0 md:text-5xl lg:text-xl font-bold flex gap-2 text-2xl not-italic">
+            <h2 className="mt-3 lg:mt-0 md:mt-7 md:text-5xl lg:text-xl font-bold flex gap-2 text-2xl not-italic">
               <span className="text-lg ">RP</span>
               150.000
             </h2>
           </div>
           <div className="flex items-center gap-7 mt-5 ">
             <label htmlFor="size">size</label>
-            <div className="custom-select lg:w-[300px] w-full lg:text-xl md:text-2xl text-sm">
+            <div className="custom-select  lg:w-[300px] w-full lg:text-sm md:text-2xl text-sm">
               <select
                 value={selectedOption}
                 onChange={handleOptionChange}
                 id="size"
                 name="size"
-                className="shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-"
+                className="shadow-sm  focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-"
               >
                 <option value="0" name="0">
                   Chose an Option
@@ -274,7 +280,7 @@ export const SelectOption1 = (props) => {
                 class="fa-solid fa-minus border px-2 py-[1.22rem] lg:py-[1.34rem] fa-xs bg-[#f9f9f9] hover:bg-gray-300 border-gray-300 cursor-pointer"
                 onClick={handleKurang}
               ></i>
-              <p className="px-6 py-2 text-center border border-gray-300">
+              <p className="px-6 py-2 md:py-1 lg:py-2 text-center border border-gray-300">
                 {Tambah}
               </p>
               <i
@@ -286,7 +292,7 @@ export const SelectOption1 = (props) => {
               add to cart
             </button>
           </div>
-          <div className="lg:w-[350px] w-full lg:mt-10 mt-10">
+          <div className="lg:w-[350px] w-full lg:mt-10 mt-10 lg:text-sm">
             <h2 className="text-[#cecece]">Add to wishlist</h2>
             <hr />
             <p className="py-2">SKU: {props.namaBaju}</p>
@@ -314,17 +320,19 @@ export const SelectOption1 = (props) => {
           <div className="border bg-black h-1 w-[20%]"> </div>
           <div className=" bg-slate-200 h-[0.09rem] w-[90%]"></div>
         </div>
-        <p className="font-bold text-sm md:text-2xl">Adtional information</p>
+        <p className="font-bold text-sm md:text-2xl lg:text-sm">
+          Adtional information
+        </p>
 
         <div className="flex items-center py-2 lg:mt-12 mt-8">
-          <p className="w-[50%] text-start text-sm lg:text-lg font-bold">
+          <p className="w-[50%] text-start text-sm md:text-lg lg:text-sm font-bold">
             weight
           </p>
           <p className="text-[#666666] text-sm">0,3 kg</p>
         </div>
         <hr />
         <div className="flex items-center py-2 mt-3">
-          <p className="w-[50%] text-start text-sm lg:text-lg font-bold">
+          <p className="w-[50%] text-start text-sm md:text-lg lg:text-sm font-bold">
             size
           </p>
           <p className=" tracking-wider text-[#666666] text-sm">xs,s,m,l,xl</p>
@@ -335,7 +343,7 @@ export const SelectOption1 = (props) => {
       </div>
       {/* releted product */}
       <div>
-        <h1 className="mt-2 lg:mt-0 lg:w-[80%] px-5 mx-auto italic font-bold lg:text-xl text-lg lg:tracking-widest uppercase">
+        <h1 className="mt-2 lg:mt-0 lg:w-[80%] px-5 mx-auto italic font-bold lg:text-sm text-lg lg:tracking-widest uppercase">
           Related products
         </h1>
         <Releted />
@@ -352,7 +360,7 @@ export const SelectOption1 = (props) => {
         <i class="fa-solid fa-up-right-and-down-left-from-center fa-2x"></i>
       </button> */}
       {/* appp */}
-      
+
       {/* Komponen modal */}
       {ModalComponent && (
         <ModalComponent isOpen={isModalOpen} onClose={handleCloseModal} />

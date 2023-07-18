@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import AutoPlay from "../components/Slick-Home";
 import { Cloth } from "../components/js/Cloth";
@@ -9,8 +9,6 @@ import Scroll from "../components/ScroolWA";
 import LastestViews from "../components/LastesView";
 import { MyComponent } from "../components/LastesView";
 
-
-
 const Home = () => {
   const [hoveredItem, setHoveredItem] = useState(null);
   const [likedItems, setLikedItems] = useState([]);
@@ -18,15 +16,16 @@ const Home = () => {
   const [selectedItemId, setSelectedItemId] = useState(null);
   const [hoveredItemId, setHoveredItemId] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
+  const optionRef = useRef(null);
 
   const handleItemMouseEnter = (itemId) => {
     setHoveredItemId(itemId);
-    setIsHovered(true)
+    setIsHovered(true);
   };
 
   const handleItemMouseLeave = () => {
     setHoveredItemId(null);
-    setIsHovered(false)
+    setIsHovered(false);
   };
   const handleOpenModal = (itemId) => {
     setSelectedItemId(itemId);
@@ -51,7 +50,7 @@ const Home = () => {
 
   return (
     <div className={`${isModalOpen ? "" : ""}`}>
-      <AutoPlay />  
+      <AutoPlay />
       <div className="lg:w-[100%] w-[90%]  mx-auto sm:mt-5">
         <div className="text-center py-6">
           <h1 className="italic uppercase sm:text-4xl lg:text-3xl font-bold">
@@ -80,7 +79,7 @@ const Home = () => {
             Denpasar, Bali.
           </p>
         </div>
-        <div className="flex items-center gap-2 py-6 w-[80%] mx-auto">
+        <div className="flex items-center gap-2 py-6 lg:w-[80%] mx-auto">
           <div className="w-[40%] h-[0.1rem] bg-gray-200" />
           <div className="lg:text-lg sm:text-lg text-sm text-center uppercase font-bold italic lg:w-[20%] sm:w-[40%] w-[80%]">
             browser product
@@ -97,29 +96,25 @@ const Home = () => {
             onMouseEnter={() => setHoveredItem(item.id)}
             onMouseLeave={() => setHoveredItem(null)}
           >
-            <a href="#" className="">
-              <img
-                src={item.img}
-                alt={item.name}
-                loading="lazy"
-                className=" cursor-pointer  "
-              />
-            </a>
+            {/* <a href="#" className=""> */}
+            <img
+              src={item.img}
+              alt={item.name}
+              loading="lazy"
+              className=" cursor-pointer  "
+            />
+            {/* </a> */}
             <p className="text-xs text-center text-slate-400">{item.name}</p>
             <p className="text-center lg:text-xs text-sm font-semibold">
               Rp. {item.price}
             </p>
             <div className="text-center border-2 border-black lg:w-[54.3%] w-full mx-auto mt-2 hover:bg-black hover:text-white">
-              {/* <a
-                href={item.link}
+              <Link
+                to={item.link}
                 className=" uppercase px-4 py-1 text-xs font-semibold"
+                ref={optionRef}
               >
                 select option
-              </a> */}
-              <Link 
-                to={item.link}
-                className=" uppercase px-4 py-1 text-xs font-semibold">
-              select option
               </Link>
             </div>
             {hoveredItem === item.id && (
@@ -162,13 +157,33 @@ const Home = () => {
           <div className="w-[45%] h-[0.1rem] bg-gray-200" />
         </div>
         <div className="lg:grid gap-10 grid-cols-4 h-[20rem] mt-10 hidden">
-          <div className="text-center leading-none cursor-pointer" onMouseEnter={handleItemMouseEnter} onMouseLeave={handleItemMouseLeave}>
-            <div className={`h-[0.09rem] w-20 mb-2 bg-slate-400 mx-auto bg ${isHovered ? 'hoverr' : ''}`}></div>
-            <a href="#" className="font-bold  text-white text-sm italic " style={{textShadow:"1px 1px 1px black"}}>
-            NK13 “HORDES”, EXCLUSIVE COLLABORATION BUTTON SHIRT <br />
-            <span className="text-xs text-slate-200 opacity-50">24 February</span>
+          <div
+            className="text-center leading-none cursor-pointer"
+            onMouseEnter={handleItemMouseEnter}
+            onMouseLeave={handleItemMouseLeave}
+          >
+            <div
+              className={`h-[0.09rem] w-20 mb-2 bg-slate-400 mx-auto bg ${
+                isHovered ? "hoverr" : ""
+              }`}
+            ></div>
+            <a
+              href="#"
+              className="font-bold  text-white text-sm italic "
+              style={{ textShadow: "1px 1px 1px black" }}
+            >
+              NK13 “HORDES”, EXCLUSIVE COLLABORATION BUTTON SHIRT <br />
+              <span className="text-xs text-slate-200 opacity-50">
+                24 February
+              </span>
             </a>
-            <p className="mt-7 leading-6   text-slate-200" style={{textShadow:"1px 1px 1px black"}}>We worked on these exclusive Button Shirt as our self appreciation of our roots as a collective, as a[Read More]</p>
+            <p
+              className="mt-7 leading-6   text-slate-200"
+              style={{ textShadow: "1px 1px 1px black" }}
+            >
+              We worked on these exclusive Button Shirt as our self appreciation
+              of our roots as a collective, as a[Read More]
+            </p>
           </div>
           <MyComponent
             itemId={1}
@@ -177,7 +192,7 @@ const Home = () => {
             tanggal="16"
             bulan="jun"
             title="NK13 Canggu Store Kickstart Opening Party Sunday, June 13th 2021"
-            image={require('../plugin/img/lastest-1.jpeg')}
+            image={require("../plugin/img/lastest-1.jpeg")}
             isHovered={hoveredItemId === 1}
             onMouseEnter={handleItemMouseEnter}
             onMouseLeave={handleItemMouseLeave}
@@ -189,7 +204,7 @@ const Home = () => {
             tanggal="01"
             bulan="feb"
             title="merry christmas & fcuk 2020"
-            image={require('../plugin/img/lastest-2.jpg')}
+            image={require("../plugin/img/lastest-2.jpg")}
             isHovered={hoveredItemId === 2}
             onMouseEnter={handleItemMouseEnter}
             onMouseLeave={handleItemMouseLeave}
@@ -201,23 +216,24 @@ const Home = () => {
             tanggal="22"
             bulan="dec"
             title="nk13 fleece shirt with chai stitch embroidery"
-            image={require('../plugin/img/lastest-3.jpg')}
+            image={require("../plugin/img/lastest-3.jpg")}
             isHovered={hoveredItemId === 3}
             onMouseEnter={handleItemMouseEnter}
             onMouseLeave={handleItemMouseLeave}
           />
         </div>
-          <div className="lg:hidden ">
-          <LastestViews/>
-          </div>
+        <div className="lg:hidden ">
+          <LastestViews />
+        </div>
       </div>
       <Footer />
       <QuixZoom
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         selectedItemId={selectedItemId}
+        optionRef={optionRef}
       />
-      <Scroll/>
+      <Scroll />
     </div>
   );
 };

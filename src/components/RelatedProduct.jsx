@@ -77,18 +77,16 @@ const Releted = () => {
         {Cloth.map((item) => (
           <div
             key={item.id}
-            className=" relative cloth-item before:bottom-[7.2rem] lg:before:bottom-[6rem] before:bg-black  item2 cursor-pointer img-hover-zoom "
+            className=" relative cloth-item hidden lg:block lg:before:bottom-[6rem] lg:before:bg-black  item2 cursor-pointer img-hover-zoom "
             onMouseEnter={() => setHoveredItem(item.id)}
             onMouseLeave={() => setHoveredItem(false)}
           >
-            <a href="#" className="">
-              <img
-                src={item.img}
-                alt={item.name}
-                loading="lazy"
-                className=" cursor-pointer  "
-              />
-            </a>
+            <img
+              src={item.img}
+              alt={item.name}
+              loading="lazy"
+              className=" cursor-pointer  "
+            />
             <p className="text-center text-xs text-[#535353]">KIDS T-SHIRT</p>
             <p className="text-sm text-center text-[#adadad]">{item.name}</p>
             <p className="text-center text-sm font-bold">Rp. {item.price}</p>
@@ -113,8 +111,8 @@ const Releted = () => {
                   <i class="fa-solid fa-heart"></i>
                 </button>
                 <div>
-                <button
-                    className="absolute bottom-[7.4rem] lg:bottom-[6.2rem] w-full text-white uppercase"
+                  <button
+                    className="absolute hidden lg:block bottom-[7.4rem] lg:bottom-[6.2rem] w-full text-white uppercase"
                     // onClick={() => handleOpenModal(item.id)}
                   >
                     quick view

@@ -1,8 +1,8 @@
-import Navbar from './components/Navbar';
-import Home from './pages/Home';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import './plugin/font-awesome/css/all.css';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
 import WingTipSkull1 from './pages/SelectOption/Wingtip-Skull-Black1';
 import WingtipCluth1 from './pages/SelectOption/Wingtip-cluth2';
 import WingtipPinWhite from './pages/SelectOption/Wingtip-pinWhite';
@@ -11,7 +11,7 @@ import WingtipFontWhite from './pages/SelectOption/Wingtif-FontWhite';
 import WingtipFontBlack from './pages/SelectOption/Wingtif-FontBlack';
 import WingtipCrossWhite from './pages/SelectOption/Wingtif-CroosWhite';
 import WingtipCrossBlack from './pages/SelectOption/Wingtif-CrossBlack';
-
+import TidakAda from './components/TidakAda';
 
 function App() {
   return (
@@ -26,6 +26,7 @@ function App() {
         <Route path='/product/t-shirt-kids-nk13-font-Black' element={<WingtipFontBlack/>} />
         <Route path='/product/t-shirt-kids-cross-font-white' element={<WingtipCrossWhite/>} />
         <Route path='/product/t-shirt-kids-cross-font-black' element={<WingtipCrossBlack/>} />
+        <Route path="*" element={<TidakAda />} />
       </Routes>
     </Router>
   );

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import { Cloth } from "../js/Cloth";
-import "../../plugin/css/Slick.css"
+import "../../plugin/css/Slick.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Loading from "../Loader";
@@ -49,13 +49,15 @@ const QuixZoom = ({ isOpen, onClose, selectedItemId }) => {
     onClose();
   };
 
-  const handleCart = () =>{
-    console.log("add to cart")
-  }
+  const handleCart = () => {
+    console.log("add to cart");
+  };
 
   const CustomPrevArrow = (props) => (
     <button
-      className={`absolute top-[12.5rem] left-5 cursor-pointer z-10 text-black ${Sisa ? '' : ''}`}
+      className={`absolute top-[12.5rem] left-5 cursor-pointer z-10 text-black ${
+        Sisa ? "" : ""
+      }`}
       onClick={props.onClick}
     >
       <i class="fa-solid fa-chevron-left fa-xl"></i>
@@ -64,7 +66,9 @@ const QuixZoom = ({ isOpen, onClose, selectedItemId }) => {
 
   const CustomNextArrow = (props) => (
     <button
-      className={`absolute right-5 bottom-[13.5rem] text-black ${Sisa  ? '' : '' }`}
+      className={`absolute right-5 bottom-[13.5rem] text-black ${
+        Sisa ? "" : ""
+      }`}
       onClick={props.onClick}
     >
       <i class="fa-solid fa-chevron-right fa-xl"></i>
@@ -78,7 +82,9 @@ const QuixZoom = ({ isOpen, onClose, selectedItemId }) => {
     ),
     customPaging: (index) => (
       <div
-        className={`custom-dot-quick  ${index === activeIndex ? "active " : ""}`}
+        className={`custom-dot-quick  ${
+          index === activeIndex ? "active " : ""
+        }`}
       />
     ),
     beforeChange: (current, next) => setActiveIndex(next),
@@ -95,8 +101,11 @@ const QuixZoom = ({ isOpen, onClose, selectedItemId }) => {
     <div>
       {isOpen && (
         // untuk background
-        <div className="absolute w-[100%] bg-black opacity-80 top-0 h-[390vh] z-30">
-          <i class="fa-solid fa-xmark cursor-pointer text-white fixed right-2 p-2 fa-2x" onClick={handleClose}></i>
+        <div className="absolute w-[100%] bg-black opacity-80 top-0 h-[390vh] z-50">
+          <i
+            class="fa-solid fa-xmark cursor-pointer text-white fixed right-2 p-2 fa-2x"
+            onClick={handleClose}
+          ></i>
         </div>
       )}
       {isOpen && (
@@ -105,17 +114,19 @@ const QuixZoom = ({ isOpen, onClose, selectedItemId }) => {
             if (item.id === selectedItemId) {
               return (
                 <div key={item.id}>
-                  <div className={`grid grid-cols-2 gap-5 bg-white w-[65%] h-[29rem] mx-auto`}>
+                  <div
+                    className={`grid grid-cols-2 gap-5 bg-white w-[65%] h-[29rem] mx-auto`}
+                  >
                     {isLoading ? (
                       <div>dfdfsd</div>
                     ) : (
                       <div>
-                      <Loading/>
-                      <Slider {...settings}>
-                      <img src={item.img1} alt={item.img1} />
-                      <img src={item.img2} alt={item.img2} />
-                      <img src={item.img3} alt={item.img3} />
-                    </Slider>
+                        <Loading />
+                        <Slider {...settings}>
+                          <img src={item.img1} alt={item.img1} />
+                          <img src={item.img2} alt={item.img2} />
+                          <img src={item.img3} alt={item.img3} />
+                        </Slider>
                       </div>
                     )}
                     {/* rincian */}
@@ -190,7 +201,10 @@ const QuixZoom = ({ isOpen, onClose, selectedItemId }) => {
                             onClick={handleTambah}
                           ></i>
                         </div>
-                        <button  onClick={handleCart} className="uppercase bg-[#cecece] hover:bg-[#b9b9b9] text-lg px-4 font-bold text-white">
+                        <button
+                          onClick={handleCart}
+                          className="uppercase bg-[#cecece] hover:bg-[#b9b9b9] text-lg px-4 font-bold text-white"
+                        >
                           add to cart
                         </button>
                       </div>
