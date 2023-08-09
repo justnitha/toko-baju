@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/toko-baju/static/css/main.f72994db.css",
-    "main.js": "/toko-baju/static/js/main.bf6aa24f.js",
+    "main.css": "/toko-baju/static/css/main.025f03f3.css",
+    "main.js": "/toko-baju/static/js/main.3e1b136a.js",
     "static/js/787.c7fcf831.chunk.js": "/toko-baju/static/js/787.c7fcf831.chunk.js",
     "static/media/FEED-POSTER-CW23.png": "/toko-baju/static/media/FEED-POSTER-CW23.783a64eb2ed720b87f78.png",
     "static/media/cloth-1-2.png": "/toko-baju/static/media/cloth-1-2.0f8d1dd02e2436f0e026.png",
@@ -56,12 +56,12 @@
     "static/media/slick.ttf": "/toko-baju/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/toko-baju/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/toko-baju/index.html",
-    "main.f72994db.css.map": "/toko-baju/static/css/main.f72994db.css.map",
-    "main.bf6aa24f.js.map": "/toko-baju/static/js/main.bf6aa24f.js.map",
+    "main.025f03f3.css.map": "/toko-baju/static/css/main.025f03f3.css.map",
+    "main.3e1b136a.js.map": "/toko-baju/static/js/main.3e1b136a.js.map",
     "787.c7fcf831.chunk.js.map": "/toko-baju/static/js/787.c7fcf831.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f72994db.css",
-    "static/js/main.bf6aa24f.js"
+    "static/css/main.025f03f3.css",
+    "static/js/main.3e1b136a.js"
   ]
 }
