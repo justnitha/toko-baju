@@ -1,3 +1,4 @@
+import TidakAda from './components/TidakAda';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import './plugin/font-awesome/css/all.css';
@@ -11,7 +12,6 @@ import WingtipFontWhite from './pages/SelectOption/Wingtif-FontWhite';
 import WingtipFontBlack from './pages/SelectOption/Wingtif-FontBlack';
 import WingtipCrossWhite from './pages/SelectOption/Wingtif-CroosWhite';
 import WingtipCrossBlack from './pages/SelectOption/Wingtif-CrossBlack';
-import TidakAda from './components/TidakAda';
 
 function App() {
   return (

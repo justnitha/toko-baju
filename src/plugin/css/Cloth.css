@@ -8,13 +8,12 @@
 }
 
 .zoomed {
-  transform: scale(2); /* Perbesar gambar menjadi 1.2 kali ukuran aslinya */
+  transform: scale(2); 
 }
 
 /* select option*/
 .custom-select {
   position: relative;
- 
 }
 
 .custom-select select {

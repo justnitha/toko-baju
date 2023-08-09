@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../plugin/css/Navbar.css";
 import { Link } from "react-router-dom";
 
@@ -14,11 +14,25 @@ const NavbarBagi = () => {
     setIsOpen(!isOpen);
   }
 
+  const handleSliderClick = (e) => {
+    // Menghentikan event dari merambat ke elemen di atasnya
+    e.stopPropagation();
+  };
+
+  useEffect(()=>{
+    if(isOpen === true) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  },[isOpen])
+
   return (
     <nav
       className={`items-center mx-auto justify-between px-3 lg:px-0 lg:justify-center lg:gap-[18rem] py-1 text-white  top-0 right-0 left-0 z-10 fixed ${
-        isOpen ? "h-screen bg-black opacity-80  " : "bg-black opacity-90 flex"
+        isOpen ? "h-screen bg-black opacity-80" : "bg-black opacity-90 flex"
       }`}
+      onClick={toggleNavbar}
     >
       <div className="navbar-toggle " onClick={toggleNavbar}>
         {isOpen ? (
@@ -76,13 +90,13 @@ const NavbarBagi = () => {
         </li>
         {/* digunakan pada saat button open */}
         <li className={isOpen ? "mx-auto mt-44 w-full" : "hidden"}>
-          <div className="">
-            <p className="text-2xl font-semibold italic">CUSTOM WAR 2023</p>
+          <div className="w-[50%] lg:w-[35%] mx-auto" onClick={handleSliderClick}>
+            <p className="lg:text-2xl text-xl font-semibold italic lg:text-start text-center">CUSTOM WAR 2023</p>
             <div
               onClick={Dropdown}
               className="flex lg:gap-[16rem] relative mt-7 ps-[3rem] justify-between w-full px-5 py-2 hover:bg-abu-abu-100 hover:text-white cursor-pointer"
             >
-              <a href="" className="text-center text-2xl font-semibold italic ">
+              <a href="" className="text-center lg:text-2xl text-xl font-semibold italic ">
                 SHOP
               </a>
               <i class="fa-solid fa-chevron-down font-bold"></i>
@@ -117,7 +131,7 @@ const NavbarBagi = () => {
               </ul>
             )}
             <div className="flex lg:gap-[15.5rem] mt-7 ps-[3rem] justify-between w-full px-5 py-2 hover:bg-abu-abu-100 hover:text-white cursor-pointer">
-              <a href="" className="text-center text-2xl font-semibold italic">
+              <a href="" className="text-center lg:text-2xl text-xl  font-semibold italic">
                 LOGIN
               </a>
               <i class="fa-solid fa-chevron-down font-bold"></i>

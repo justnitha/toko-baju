@@ -23,14 +23,27 @@ const Modal7 = ({ isOpen, onClose }) => {
     onClose();
   };
 
+  const handleSliderClick = (e) => {
+    // Menghentikan event dari merambat ke elemen di atasnya
+    e.stopPropagation();
+  };
+
   const CustomPrevArrow = (props) => (
-    <button className="absolute top-[22rem] left-5 cursor-pointer z-10 text-white " onClick={props.onClick}>
+    <button className="absolute top-[22rem] left-5 cursor-pointer z-10 text-white " 
+    onClick={(e) =>{
+        props.onClick(e);
+        handleSliderClick(e);
+      }}>
       <i class="fa-solid fa-arrow-left fa-lg"></i>
     </button>
   );
   
   const CustomNextArrow = (props) => (
-      <button className="absolute right-5 bottom-[25.5rem] text-white" onClick={props.onClick}>
+      <button className="absolute right-5 bottom-[25.5rem] text-white" 
+      onClick={(e) =>{
+        props.onClick(e);
+        handleSliderClick(e);
+      }}>
       <i class="fa-solid fa-arrow-right fa-lg"></i>
      
       </button>
@@ -77,10 +90,10 @@ const Modal7 = ({ isOpen, onClose }) => {
     <div>
       {isOpen && (
         // untuk background
-        <div className="absolute w-[100%] bg-black opacity-80 top-0 h-[267vh] z-30"> </div>
+        <div className="absolute w-[100%] bg-black opacity-80 top-0 h-[267vh] z-30" onClick={handleClose}> </div>
       )}
       {isOpen &&(
-        <div className=" w-[100%] top-0 z-50 fixed">
+        <div className=" w-[100%] top-0 z-50 fixed" onClick={handleClose}>
         <Slider {...settings}>
           {Cloth7.map(item => (
             <div>
@@ -108,7 +121,10 @@ const Modal7 = ({ isOpen, onClose }) => {
                 <div className="lg:hidden h-[42.8rem]">
                   <img src={item.image} 
                        alt="image"  
-                       onClick={handleZoomTogglee} 
+                       onClick={(e) => {
+                        handleZoomTogglee(e);
+                        handleSliderClick(e);
+                      }} 
                        className="w-full mt-32 sm:mt-0 md:mt-0 sm:h-full  bg-white mx-auto cursor-pointer" />
                 </div>
               <div className="bg-black text-white text-center opacity-50  py-3">

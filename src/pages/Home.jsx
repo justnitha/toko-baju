@@ -92,7 +92,7 @@ const Home = () => {
         {Cloth.map((item) => (
           <div
             key={item.id}
-            className=" relative cloth-item lg:before:bg-black item cursor-pointer img-hover-zoom "
+            className=" relative cloth-item lg:before:bg-black item cursor-pointer img-hover-zoom"
             onMouseEnter={() => setHoveredItem(item.id)}
             onMouseLeave={() => setHoveredItem(null)}
           >
@@ -101,7 +101,8 @@ const Home = () => {
               src={item.img}
               alt={item.name}
               loading="lazy"
-              className=" cursor-pointer  "
+              onClick={() => handleOpenModal(item.id)}
+              className=" cursor-pointer"
             />
             {/* </a> */}
             <p className="text-xs text-center text-slate-400">{item.name}</p>

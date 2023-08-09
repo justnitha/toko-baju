@@ -30,6 +30,14 @@ const QuixZoom = ({ isOpen, onClose, selectedItemId }) => {
     }
   }, [selectedOption]);
 
+  useEffect (()=>{
+    if(isOpen === true) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  },[isOpen])
+
   function handleKurang() {
     if (Tambah > 1) {
       SetTambah((plus) => plus - 1);
@@ -42,6 +50,11 @@ const QuixZoom = ({ isOpen, onClose, selectedItemId }) => {
   }
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
+  };
+
+  const handleSliderClick = (e) => {
+    // Menghentikan event dari merambat ke elemen di atasnya
+    e.stopPropagation();
   };
 
   // Fungsi untuk menutup modal
@@ -98,7 +111,7 @@ const QuixZoom = ({ isOpen, onClose, selectedItemId }) => {
   };
 
   return (
-    <div>
+    <div onClick={handleClose}>
       {isOpen && (
         // untuk background
         <div className="absolute w-[100%] bg-black opacity-80 top-0 h-[390vh] z-50">
@@ -116,6 +129,7 @@ const QuixZoom = ({ isOpen, onClose, selectedItemId }) => {
                 <div key={item.id}>
                   <div
                     className={`grid grid-cols-2 gap-5 bg-white w-[65%] h-[29rem] mx-auto`}
+                    onClick={handleSliderClick}
                   >
                     {isLoading ? (
                       <div>dfdfsd</div>
@@ -141,13 +155,13 @@ const QuixZoom = ({ isOpen, onClose, selectedItemId }) => {
                       </div>
                       <div className="flex items-center gap-7 mt-5 ">
                         <label htmlFor="size">size</label>
-                        <div className="custom-select text-sm">
+                        <div className="custom-select text-sm lg:w-[50%]">
                           <select
                             value={selectedOption}
                             onChange={handleOptionChange}
                             id="size"
                             name="size"
-                            className="shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-"
+                            className="shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500"
                           >
                             <option value="0" name="0">
                               Chose an Option

@@ -96,8 +96,6 @@
   width: 100%;
   height: 30px;
   left: 0;
-  
-  
   transform: scaleY(0);
   transform-origin: bottom;
   transition: transform 0.3s;
@@ -123,7 +121,7 @@
   overflow: hidden;
 }
 .hoverr img{
-  transition: transform 0.5s ease;
+  transition: transform .5s ease;
 }
 .hoverr:hover img {
   transform: scale(1.1);

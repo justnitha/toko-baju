@@ -169,6 +169,7 @@ export const SelectOption1 = (props) => {
                       ? "zoomed cursor-pointer"
                       : ""
                   }`}
+                  onClick={handleOpenModal}
                   style={{
                     transformOrigin: `${zoomPosition.x}% ${zoomPosition.y}%`,
                   }}
@@ -181,11 +182,11 @@ export const SelectOption1 = (props) => {
                   index === activeIndex ? "active" : ""
                 }`}
               >
-                <img src={item.image} alt="img" className=" mx-auto" />
+                <img src={item.image} alt="img" className=" mx-auto"  onClick={handleOpenModal}/>
               </div>
               <button
                 onClick={handleOpenModal}
-                className=" lg:-mt-20 px-2 md:px-5 md:py-5 lg:px-2 lg:py-1  py-1 border-2 border-gray-200 rounded-[47%] text-gray-200"
+                className=" lg:-mt-20 px-2 md:px-5 md:py-5 lg:px-2 lg:text-sm lg:py-1  py-1 border-2 border-gray-200 rounded-[47%] text-gray-200"
               >
                 <div className="hidden md:block">
                   <i class="fa-solid fa-up-right-and-down-left-from-center fa-2x"></i>

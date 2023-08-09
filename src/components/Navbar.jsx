@@ -14,6 +14,12 @@ const Navbar = () => {
   function toggleNavbar() {
     setIsOpen(!isOpen);
   }
+  
+  const handleCloseBg = (e) => {
+    // Menghentikan event dari merambat ke elemen di atasnya
+    e.stopPropagation();
+  };
+
 
   useEffect(() => {
     if (isOpen == true) {
@@ -44,9 +50,10 @@ const Navbar = () => {
         navbarScrolled
           ? "bg-black flex opacity-90"
           : "" || isOpen
-          ? " top-0 left-0 bg-black opacity-80 fixed px-0 "
-          : "flex"
+          ? " top-0 left-0 bg-black opacity-80 fixed px-0 h-screen "
+          : "flex "
       }`}
+      onClick={toggleNavbar}
     >
       <div className="navbar-toggle " onClick={toggleNavbar}>
         {isOpen ? (
@@ -103,14 +110,14 @@ const Navbar = () => {
           </a>
         </li>
         {/* digunakan pada saat button open */}
-        <li className={isOpen ? " mt-44 w-full h-screen" : "hidden"}>
-          <div className="">
-            <p className="text-2xl font-semibold italic">CUSTOM WAR 2023</p>
+        <li className={isOpen ? " mt-44 w-full" : "hidden"}>
+          <div className="w-[50%] lg:w-[35%] mx-auto" onClick={handleCloseBg}>
+            <p className="lg:text-2xl text-xl font-semibold italic text-center lg:text-start">CUSTOM WAR 2023</p>
             <div
               onClick={Dropdown}
               className="flex lg:gap-[16rem] relative mt-7 ps-[3rem] justify-between w-full px-5 py-2 hover:bg-abu-abu-100 hover:text-white cursor-pointer"
             >
-              <a href="" className="text-center text-2xl font-semibold italic ">
+              <a href="" className="text-center lg:text-2xl text-xl font-semibold italic ">
                 SHOP
               </a>
               <i class="fa-solid fa-chevron-down font-bold"></i>
@@ -145,7 +152,7 @@ const Navbar = () => {
               </ul>
             )}
             <div className="flex lg:gap-[15.5rem] mt-7 ps-[3rem] justify-between w-full px-5 py-2 hover:bg-abu-abu-100 hover:text-white cursor-pointer">
-              <a href="" className="text-center text-2xl font-semibold italic">
+              <a href="" className="text-center lg:text-2xl text-xl font-semibold italic">
                 LOGIN
               </a>
               <i class="fa-solid fa-chevron-down font-bold"></i>
