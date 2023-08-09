@@ -10,7 +10,6 @@ import "slick-carousel/slick/slick-theme.css";
 import "../../plugin/font-awesome/css/all.css";
 
 export const SelectOption1 = (props) => {
-  const [Title, SetTitle] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
   const [isZoomed, setIsZoomed] = useState(false);
   const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });

@@ -96,15 +96,22 @@ const Home = () => {
             onMouseEnter={() => setHoveredItem(item.id)}
             onMouseLeave={() => setHoveredItem(null)}
           >
-            {/* <a href="#" className=""> */}
+            {/* web */}
             <img
               src={item.img}
               alt={item.name}
               loading="lazy"
               onClick={() => handleOpenModal(item.id)}
-              className=" cursor-pointer"
+              className=" cursor-pointer lg:block hidden"
             />
-            {/* </a> */}
+            {/* responsive hp */}
+            <img
+              src={item.img}
+              alt={item.name}
+              loading="lazy"
+              onClick={() => handleOpenModal(item.id)}
+              className=" cursor-pointer lg:hidden"
+            />
             <p className="text-xs text-center text-slate-400">{item.name}</p>
             <p className="text-center lg:text-xs text-sm font-semibold">
               Rp. {item.price}

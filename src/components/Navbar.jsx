@@ -16,13 +16,12 @@ const Navbar = () => {
   }
   
   const handleCloseBg = (e) => {
-    // Menghentikan event dari merambat ke elemen di atasnya
     e.stopPropagation();
   };
 
 
   useEffect(() => {
-    if (isOpen == true) {
+    if (isOpen === true) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
