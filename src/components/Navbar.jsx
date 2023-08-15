@@ -18,8 +18,6 @@ const Navbar = () => {
   const handleCloseBg = (e) => {
     e.stopPropagation();
   };
-
-
   useEffect(() => {
     if (isOpen === true) {
       document.body.style.overflow = "hidden";
@@ -29,11 +27,14 @@ const Navbar = () => {
   }, [isOpen]);
   useEffect(() => {
     const handleScroll = () => {
+      const open = document.getElementById("openNav")
       const isTop = window.scrollY < 300;
       if (isTop) {
         setNavbarScrolled(false);
+        open.classList.add("mt-44");
       } else {
         setNavbarScrolled(true);
+        open.classList.remove("mt-44");
       }
     };
 
@@ -41,17 +42,14 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [navbarScrolled]);
 
   return (
     <nav
-      className={` items-center mx-auto justify-between lg:px-24 px-8 py-1 text-white  top-0 right-0 left-0 z-50 fixed ${
-        navbarScrolled
-          ? "bg-black flex opacity-90"
-          : "" || isOpen
-          ? " top-0 left-0 bg-black opacity-80 fixed px-0 h-full "
-          : "flex "
-      }`}
+      className={` items-center mx-auto justify-between lg:px-24 px-8 py-1 text-white  top-0 right-0 left-0 z-50 fixed 
+      ${ navbarScrolled ? "bg-black flex opacity-90": "" } ${isOpen
+        ? " top-0 left-0 h-full bg-black opacity-80 fixed px-0  "
+        : "flex "}`}
       onClick={toggleNavbar}
     >
       <div className="navbar-toggle " onClick={toggleNavbar}>
@@ -108,10 +106,11 @@ const Navbar = () => {
             <i class="fa-brands fa-youtube fa-lg"></i>
           </a>
         </li>
+        </ul>
         {/* digunakan pada saat button open */}
-        <li className={isOpen ? " mt-44 w-full" : "hidden"}>
+        <div className={isOpen ? "w-full" : "hidden"}>
           <div className="w-[50%] lg:w-[35%] mx-auto" onClick={handleCloseBg}>
-            <p className="lg:text-2xl text-xl font-semibold italic text-center lg:text-start">CUSTOM WAR 2023</p>
+            <p className="lg:text-2xl text-xl font-semibold italic text-center lg:text-start" id="openNav">CUSTOM WAR 2023</p>
             <div
               onClick={Dropdown}
               className="flex lg:gap-[16rem] relative mt-7 ps-[3rem] justify-between w-full px-5 py-2 hover:bg-abu-abu-100 hover:text-white cursor-pointer"
@@ -157,8 +156,8 @@ const Navbar = () => {
               <i class="fa-solid fa-chevron-down font-bold"></i>
             </div>
           </div>
-        </li>
-      </ul>
+        </div>
+      
     </nav>
   );
 };

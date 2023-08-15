@@ -111,7 +111,7 @@ const QuixZoom = ({ isOpen, onClose, selectedItemId }) => {
   };
 
   return (
-    <div onClick={handleClose}>
+    <div onClick={handleClose} className="hidden lg:block md:block">
       {isOpen && (
         // untuk background
         <div className="absolute w-[100%] bg-black opacity-80 top-0 h-[390vh] z-50">
