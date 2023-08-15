@@ -30,7 +30,7 @@ const NavbarBagi = () => {
   return (
     <nav
       className={`items-center mx-auto justify-between px-3 lg:px-0 lg:justify-center lg:gap-[18rem] py-1 text-white  top-0 right-0 left-0 z-10 fixed ${
-        isOpen ? "h-screen bg-black opacity-80" : "bg-black opacity-90 flex"
+        isOpen ? "h-full bg-black opacity-80" : "bg-black opacity-90 flex"
       }`}
       onClick={toggleNavbar}
     >
@@ -63,28 +63,28 @@ const NavbarBagi = () => {
       </div>
       <ul className="flex gap-5 md:text-2xl lg:text-lg">
         <li className={isOpen ? "hidden" : ""}>
-          <a href="#">
+          <a href="">
             <i class="fa-solid fa-basket-shopping fa-lg"></i>
           </a>
         </li>
         <li className={isOpen ? "hidden" : ""}>
-          <a href="#">
+          <a href="">
             <i class="fa-solid fa-user fa-lg"></i>
           </a>
         </li>
         <li className={isOpen ? "hidden" : "hidden lg:block"}>|</li>
         <li className={isOpen ? "hidden" : "hidden lg:block"}>
-          <a href="#">
+          <a href="">
             <i class="fa-brands fa-facebook-f fa-lg"></i>
           </a>
         </li>
         <li className={isOpen ? "hidden" : "hidden lg:block"}>
-          <a href="#">
+          <a href="">
             <i class="fa-brands fa-instagram fa-lg"></i>
           </a>
         </li>
         <li className={isOpen ? "hidden" : "hidden lg:block"}>
-          <a href="#">
+          <a href="">
             <i class="fa-brands fa-youtube fa-lg"></i>
           </a>
         </li>

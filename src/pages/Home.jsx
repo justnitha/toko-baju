@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import {  useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import AutoPlay from "../components/Slick-Home";
 import { Cloth } from "../components/js/Cloth";

@@ -45,11 +45,11 @@ const Navbar = () => {
 
   return (
     <nav
-      className={` items-center mx-auto justify-between lg:px-24 px-8   py-1 text-white  top-0 right-0 left-0 z-50 fixed ${
+      className={` items-center mx-auto justify-between lg:px-24 px-8 py-1 text-white  top-0 right-0 left-0 z-50 fixed ${
         navbarScrolled
           ? "bg-black flex opacity-90"
           : "" || isOpen
-          ? " top-0 left-0 bg-black opacity-80 fixed px-0 h-screen "
+          ? " top-0 left-0 bg-black opacity-80 fixed px-0 h-full "
           : "flex "
       }`}
       onClick={toggleNavbar}
